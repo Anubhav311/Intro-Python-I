@@ -22,3 +22,22 @@ and does the following:
 import sys
 import calendar
 from datetime import datetime
+
+
+currentMonth = int(datetime.now().strftime("%m"))
+currentYear = int("20" + datetime.now().strftime("%y"))
+
+month = ""
+year = ""
+
+month = input("please specify month -> ")
+year = input("please specify year -> ")
+
+if len(month) != 0 and len(year) != 0:
+  print(calendar.month(int(year), int(month), 1))
+elif len(month) != 0 and len(year) == 0:
+  print(calendar.month(currentYear, int(month), 1))
+elif len(month) == 0 and len(year) != 0:
+  print(calendar.month(int(year), currentMonth, 1))
+elif len(month) == 0 and len(year) == 0:
+  print("Please provide valid month and year")
